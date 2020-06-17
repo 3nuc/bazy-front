@@ -14,7 +14,7 @@ export const artist = {
     return api.get(`all`)
   },
   update(artistId: string, body: {nazwa: string, imageUrl: string, bio: string}) {
-    return api.put(`editArtist/${artistId}`)
+    return api.put(`editArtist/${artistId}`, body)
   },
   remove(artistId: string) {
     return api.delete(`removeArtist/${artistId}`)

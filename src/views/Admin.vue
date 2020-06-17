@@ -59,7 +59,7 @@
       <v-sheet
         outlined
         class="pa-4"
-        style="position:fixed; top:10; right:10; z-index:1000;"
+        style="position:fixed; top:2px; right:0; z-index:1000;"
       >
         <div class="text-h3">Opcje</div>
         <div>
@@ -144,11 +144,12 @@ export default {
     async sendArtist() {
       const { method } = this.current;
       if (method === "create") await api.artist.create(this.formData.addArtist);
-      else if (method === "update")
-        await api.artist.update(
-          this.current.artist._id.$oid,
-          this.formData.addArtist
-        );
+      else if (method === "edit")
+        console.log(this.current.artist._id.$oid, this.formData.addArtist);
+      await api.artist.update(
+        this.current.artist._id.$oid,
+        this.formData.addArtist
+      );
       Object.keys(this.formData.addArtist).forEach(
         key => (this.formData.addArtist[key] = "")
       );
